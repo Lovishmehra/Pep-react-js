@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #15293e;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #1f2f40;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+        }
+        nav ul li a:hover {
+            background: rgb(12, 209, 170);
+            color: #15293e;
+            border-radius: 5px;
+        }
+        .hero {
+            background: url('sports-banner.jpg') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e8dede;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .about {
+            background-color: #e7eff6;
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .card img {
+            width: 100%;
+            transition: transform 0.3s;
+        }
+        .card:hover img {
+            transform: scale(1.1);
+        }
+        .card h3 {
+            margin: 15px 0;
+        }
+        .card p {
+            padding: 0 15px 15px;
+            color: #555;
+        }
+        footer {
+            background-color: #15293e;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+        footer p {
+            margin: 0;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        form input, form textarea, form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form button {
+            background-color: #15293e;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: rgb(11, 221, 179);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GameZone</h1>
+        <p>Your one-stop destination for all sports updates</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="hero" id="home">
+        <h1>Welcome to GameZone!</h1>
+    </div>
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>We provide the latest news, updates, and insights on various sports from around the world.</p>
+        <div class="card-container">
+            <div class="card">
+                <img src="Football.png" alt="Football">
+                <h3>Football</h3>
+                <p>Get the latest updates on football leagues and matches worldwide.</p>
+            </div>
+            <div class="card">
+                <img src="cricket.png" alt="Cricket">
+                <h3>Cricket</h3>
+                <p>Stay informed about international and domestic cricket events.</p>
+            </div>
+            <div class="card">
+                <img src="Basketball.png" alt="Basketball">
+                <h3>Basketball</h3>
+                <p>Explore the world of basketball and catch up on major tournaments.</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you! Reach out to us for any queries or feedback.</p>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2025 GameZone. All rights reserved.</p>
+    </footer>
+    
+</body>
+</html>
