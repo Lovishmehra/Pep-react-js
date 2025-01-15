@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Operations</title>
+</head>
+<body>
+    <h1>Bank Operations</h1>
+    <label for="choice">Choose an operation:</label>
+    <select id="choice">
+        <option value="1">Create Account</option>
+        <option value="2">Deposit Money</option>
+        <option value="3">Withdraw Money</option>
+        <option value="4">Exit</option>
+    </select>
+    <br><br>
+    <div id="operationInputs">
+        <label for="accountNo">Account Number:</label>
+        <input type="text" id="accountNo" placeholder="Enter Account Number">
+        <br><br>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" placeholder="Enter Amount">
+        <br><br>
+    </div>
+    <button onclick="performOperation()">Submit</button>
+    <p id="result"></p>
+
+    <script>
+        let bank = {};
+
+        function bankaccount(accountno, initialbalance) {
+            if (bank[accountno]) {
+                return "Account already exists.";
+            } else {
+                bank[accountno] = initialbalance;
+                return `Account created successfully. Account No: ${accountno}, Initial Balance: ${initialbalance}`;
+            }
+        }
+
+        function deposit(accountno, amount) {
+            if (bank[accountno]) {
+                bank[accountno] += amount;
+                return `Deposited ${amount} to Account No: ${accountno}. Current Balance: ${bank[accountno]}`;
+            } else {
+                return "Account number not found.";
+            }
+        }
+
+        function withdraw(accountno, amount) {
+            if (bank[accountno]) {
+                if (bank[accountno] >= amount) {
+                    bank[accountno] -= amount;
+                    return `Withdrew ${amount} from Account No: ${accountno}. Remaining Balance: ${bank[accountno]}`;
+                } else {
+                    return "Insufficient balance.";
+                }
+            } else {
+                return "Account number not found.";
+            }
+        }
+
+        function performOperation() {
+            const choice = document.getElementById("choice").value;
+            const accountNo = document.getElementById("accountNo").value;
+            const amount = parseFloat(document.getElementById("amount").value);
+            let result = "";
+
+            switch (choice) {
+                case "1":
+                    if (!isNaN(amount)) {
+                        result = bankaccount(accountNo, amount);
+                    } else {
+                        result = "Invalid initial balance.";
+                    }
+                    break;
+                case "2":
+                    if (!isNaN(amount)) {
+                        result = deposit(accountNo, amount);
+                    } else {
+                        result = "Invalid deposit amount.";
+                    }
+                    break;
+                case "3":
+                    if (!isNaN(amount)) {
+                        result = withdraw(accountNo, amount);
+                    } else {
+                        result = "Invalid withdrawal amount.";
+                    }
+                    break;
+                case "4":
+                    result = "Thank you for using our services. Goodbye!";
+                    document.getElementById("operationInputs").style.display = "none";
+                    break;
+                default:
+                    result = "Invalid operation.";
+            }
+
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>
